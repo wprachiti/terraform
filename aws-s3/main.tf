@@ -12,6 +12,6 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "demo_bucket" {
-    bucket = "my-terraform-s3-bucket"
+    bucket = "prach-terraform-s3-bucket"
   
 }
