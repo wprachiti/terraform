@@ -5,7 +5,7 @@ terraform {
       version = "~> 6.0"
     }
   }
-  backend "S3" {
+  backend "s3" {
     bucket = "prach-terraform-s3-bucket-2b251a20ed4713eb"
     key = "remote_backend/backend.tfstate"
     region = "ap-south-1"
