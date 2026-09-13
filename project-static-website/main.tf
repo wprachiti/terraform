@@ -25,14 +25,14 @@ resource "aws_s3_bucket" "mywebapp_bucket" {
   
 }
 
-resource "aws_s3_object" "object" {
+resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.mywebapp_bucket.id
   key    = "index.html"
   source = "./index.html"
   
 }
 
-resource "aws_s3_object" "object" {
+resource "aws_s3_object" "styles_css" {
   bucket = aws_s3_bucket.mywebapp_bucket.id
   key    = "styles.css"
   source = "./styles.css"
