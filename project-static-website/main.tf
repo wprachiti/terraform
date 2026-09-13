@@ -65,6 +65,7 @@ resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.mywebapp_bucket.id
   key    = "index.html"
   source = "./index.html"
+  content_type = "text/html"
   
 }
 
@@ -72,9 +73,10 @@ resource "aws_s3_object" "styles_css" {
   bucket = aws_s3_bucket.mywebapp_bucket.id
   key    = "styles.css"
   source = "./styles.css"
+  content_type = "text/css"
   
 }
 
 output "name" {
-  value = random_id.my_random_id.hex
+  value = aws_s3_bucket_website_configuration.mywebapp.website_endpoint
 }
