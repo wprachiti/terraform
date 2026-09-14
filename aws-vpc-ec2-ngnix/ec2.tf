@@ -3,6 +3,7 @@
 resource "aws_instance" "nginxserver" {
   ami                         = "ami-08188a5a4dfdbd573"
   instance_type               = "t3.micro"
+  key_name      = aws_key_pair.example.key_name
   subnet_id                   = aws_subnet.public-subnet.id
   vpc_security_group_ids      = [aws_security_group.nginx-sg.id]
   associate_public_ip_address = true
@@ -10,7 +11,7 @@ resource "aws_instance" "nginxserver" {
   connection {
     type        = "ssh"
     user        = "ec2-user"  # Replace with the appropriate username for your EC2 instance
-    # private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
+    private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
     host        = self.public_ip
   }
 

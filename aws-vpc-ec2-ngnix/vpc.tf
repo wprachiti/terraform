@@ -6,6 +6,11 @@ resource "aws_vpc" "my_vpc" {
   }
 }
 
+resource "aws_key_pair" "example" {
+  key_name   = "terraform-demo-abhi"  # Replace with your desired key name
+  public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+}
+
 #Private subnet
 resource "aws_subnet" "private-subnet" {
   cidr_block = "10.0.1.0/24"
